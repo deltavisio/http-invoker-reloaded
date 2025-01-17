@@ -11,14 +11,25 @@ http-invoker-reloaded is an unofficial, community-driven revival of Spring’s `
 - A drop-in alternative for projects that still rely on HttpInvoker
 
 == Getting Started
-Include `http-invoker-reloaded` as a dependency in your project. _Note: Replace `x.y.z` with the actual version you release._
+Include `http-invoker-reloaded` as a dependency in your project. _Note: Check GitHub Packages for the current version._
 
 === Maven
+You can reference the package from GitHub Packages by adding a <repository> to the consumer project’s pom.xml (or settings.xml), similar to:
+----
+<repositories>
+  <repository>
+    <id>http-invoker-reloaded</id>
+    <name>GitHub Packages</name>
+    <url>https://maven.pkg.github.com/deltavisio/http-invoker-reloaded</url>
+  </repository>
+</repositories>
+----
+
 ----
 <dependency>
   <groupId>de.deltavisio</groupId>
   <artifactId>http-invoker-reloaded</artifactId>
-  <version>x.y.z</version>
+  <version>25.03.5-82175aa</version>
 </dependency>
 ----
 
