@@ -13,6 +13,7 @@
     <commons-httpclient.version>4.5.13</commons-httpclient.version>
     <junit.jupiter.version>5.8.2</junit.jupiter.version>
     <maven-compiler.version>3.13.0</maven-compiler.version>
+    <maven-jar.version>3.4.2</maven-jar.version>
     <spring.version>6.1.16</spring.version>
   </properties>
 
@@ -29,6 +30,29 @@
           <release>17</release>
         </configuration>
       </plugin>
+
+      <!-- Maven Jar Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven-jar.version}</version>
+        <configuration>
+          <archive>
+            <!-- Damit keine pom.xml in den JARs enthalten sind, das ist Sourcecode -->
+            <addMavenDescriptor>false</addMavenDescriptor>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+          </archive>
+          <!-- addMavenDescriptor oben funktioniert nicht, Workaround -->
+          <excludes>
+            <exclude>META-INF/maven/**</exclude>
+            <exclude>META-INF/maven/**</exclude>
+          </excludes>
+          <skipIfEmpty>true</skipIfEmpty>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
