@@ -1,0 +1,42 @@
+<configuration xmlns="https://github.com/qoomon/maven-git-versioning-extension"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://github.com/qoomon/maven-git-versioning-extension https://qoomon.github.io/maven-git-versioning-extension/configuration-7.0.0.xsd">
+
+  <!-- s wie Start (Git Tag = Releases dieser Version beginnen) -->
+  <describeTagPattern><![CDATA[s(?<majorversion>.*)]]></describeTagPattern>
+
+  <refs>
+    <!-- Releases aus master z.B. 22.38.2-d17ae01 -->
+    <ref type="branch">
+      <pattern>master</pattern>
+      <version>${describe.tag.version}.${describe.distance}-${commit.short}${dirty}</version>
+      <properties>
+        <project.build.outputTimestamp>${commit.timestamp}</project.build.outputTimestamp>
+      </properties>
+    </ref>
+
+    <!-- Snapshots aus Feature-Branches z.B. 22.38-neue-funktion-SNAPSHOT -->
+    <ref type="branch">
+      <pattern>.+</pattern>
+      <version>${describe.tag.version}-${ref}-SNAPSHOT</version>
+      <properties>
+        <project.build.outputTimestamp>${commit.timestamp}</project.build.outputTimestamp>
+      </properties>
+    </ref>
+
+    <!-- Feste Versionen aus Git Tags -->
+    <ref type="tag">
+      <pattern><![CDATA[v(?<version>.*)]]></pattern>
+      <version>${ref.version}</version>
+      <properties>
+        <project.build.outputTimestamp>${commit.timestamp}</project.build.outputTimestamp>
+      </properties>
+    </ref>
+  </refs>
+
+  <!-- Fallback -->
+  <rev>
+    <version>${ref}-SNAPSHOT</version>
+  </rev>
+
+</configuration>
