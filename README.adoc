@@ -1,0 +1,31 @@
+= http-invoker-reloaded
+Spring's deprecated HttpInvoker, brought back to life!
+
+== Overview
+http-invoker-reloaded is an unofficial, community-driven revival of Spring’s `HttpInvokerServiceExporter` functionality. It is built on top of Spring 5.3.x code, updated for modern Jakarta dependencies and Java versions, allowing you to continue using HttpInvoker in a post-Spring 6 environment.
+
+== Features
+- Modernized HttpInvoker for Jakarta EE
+- Compatible with recent Java releases
+- Similar configuration and usage patterns as the original Spring HttpInvoker
+- A drop-in alternative for projects that still rely on HttpInvoker
+
+== Getting Started
+Include `http-invoker-reloaded` as a dependency in your project. _Note: Replace `x.y.z` with the actual version you release._
+
+=== Maven
+----
+<dependency>
+  <groupId>de.deltavisio</groupId>
+  <artifactId>http-invoker-reloaded</artifactId>
+  <version>x.y.z</version>
+</dependency>
+----
+
+== Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests. Please note that the project is maintained in spare time, so response and updates may be limited.
+
+== License
+http-invoker-reloaded is released under the Apache License, Version 2.0.  
+Please see the link:https://www.apache.org/licenses/LICENSE-2.0[LICENSE] for more details.
+
